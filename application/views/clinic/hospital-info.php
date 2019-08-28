@@ -5,7 +5,7 @@
       </h1>
 		<ol class="breadcrumb">
 			<li><a href="<?php echo base_url('dashboard'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li class="active">Hospital Details</li>
+			<li class="active">Website Details</li>
 		</ol>
 	</section>
 	<section class="content">
@@ -42,7 +42,7 @@
 								<div class="form-group">
 									<label class="col-lg-4 control-label">Mrn No</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" readonly="true" name="mrn_no" value="<?php echo isset($h_detail['h_id'])?$h_detail['h_id']:'';?>" placeholder="Enter Mrn No" />
+										<input type="text" class="form-control" readonly="true" name="mrn_no" value="<?php echo isset($h_detail['w_id'])?$h_detail['w_id']:'';?>" placeholder="Enter Mrn No" />
 									</div>
 								</div>
 								<div class="form-group">

@@ -84,10 +84,10 @@ class Admin_model extends CI_Model
 	
 	public  function update_h_details($a_id,$data){
 		$this->db->where('h_id',$a_id);
-    	return $this->db->update("hospital_details",$data);
+    	return $this->db->update("website_details",$data);
 	}
-	public  function get_hospital_details($id){
-		$this->db->select('h_id,name,website,email,mobile,address,logo')->from('hospital_details');
+	public  function get_website_details($id){
+		$this->db->select('h_id,name,website,email,mobile,address,logo')->from('website_details');
 		$this->db->where('h_id',$id);
     	return $this->db->get()->row_array();
 	}

@@ -12,7 +12,7 @@ class Hospital extends sidebar {
 	{	
 		if($this->session->userdata('h_details'))
 			{	
-				$data['h_detail']=$this->Admin_model->get_hospital_details(1);
+				$data['h_detail']=$this->Admin_model->get_website_details(1);
 				//echo '<pre>';print_r($data);exit;
 				$this->load->view('clinic/hospital-info',$data);
 				$this->load->view('admin/footer');
@@ -26,7 +26,7 @@ class Hospital extends sidebar {
 			{	
 				$post=$this->input->post();
 				//echo '<pre>';print_r($post);exit;
-				$hdetails=$this->Admin_model->get_hospital_details(1);
+				$hdetails=$this->Admin_model->get_website_details(1);
 				if(isset($_FILES['image']['name']) && $_FILES['image']['name']!=''){
 						unlink('assets/logo/'.$userdetails['profile_pic']);
 							$temp = explode(".", $_FILES["image"]["name"]);
