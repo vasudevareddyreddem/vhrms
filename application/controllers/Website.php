@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 @include_once( APPPATH . 'controllers/Sidebar.php');
-class Hospital extends sidebar {
+class Website extends sidebar {
 
 	public function __construct() 
 	{
@@ -10,19 +10,19 @@ class Hospital extends sidebar {
 	
 	public function index()
 	{	
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 			{	
 				$data['h_detail']=$this->Admin_model->get_website_details(1);
 				//echo '<pre>';print_r($data);exit;
-				$this->load->view('clinic/hospital-info',$data);
+				$this->load->view('web/website-info',$data);
 				$this->load->view('admin/footer');
 			}else{
 				$this->session->set_flashdata('error','Please login to continue');
 				redirect('admin');
 			}
 	}
-	public function addhospital_d_post()
-	{		if($this->session->userdata('h_details'))
+	public function addwebsite_d_post()
+	{		if($this->session->userdata('w_details'))
 			{	
 				$post=$this->input->post();
 				//echo '<pre>';print_r($post);exit;
@@ -44,13 +44,13 @@ class Hospital extends sidebar {
 					'logo'=>$image,
 					'updated_at'=>date('Y-m-d H:i:s'),
 					);
-					$update=$this->Admin_model->update_h_details(1,$u);
+					$update=$this->Admin_model->update_w_details(1,$u);
 					if(count($update)>0){
-						$this->session->set_flashdata('success',"Hospital details updated successfully");
-						redirect('hospital');
+						$this->session->set_flashdata('success',"website details updated successfully");
+						redirect('website');
 					}else{
 						$this->session->set_flashdata('error',"Technical problem will occured. Please try again");
-						redirect('hospital');
+						redirect('website');
 					}
 			}else{
 				$this->session->set_flashdata('error','Please login to continue');

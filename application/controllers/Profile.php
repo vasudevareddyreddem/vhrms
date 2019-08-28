@@ -10,9 +10,9 @@ class Profile extends sidebar {
 	}
 	public function index()
 	{	
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
-			$l_data=$this->session->userdata('h_details');
+			$l_data=$this->session->userdata('w_details');
 			$data['u_d']=$this->Admin_model->get_user_details($l_data['a_id']);
 			$this->load->view('admin/profile',$data);
 			$this->load->view('admin/footer');
@@ -23,9 +23,9 @@ class Profile extends sidebar {
 	}
 	public function edit()
 	{
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
-			$l_data=$this->session->userdata('h_details');
+			$l_data=$this->session->userdata('w_details');
 			$data['userdetails']=$this->Admin_model->get_user_details($l_data['a_id']);
 			$this->load->view('admin/edit-profile',$data);
 			$this->load->view('admin/footer');
@@ -37,9 +37,9 @@ class Profile extends sidebar {
 	}
 	public function editpost()
 	{
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
-			$l_data=$this->session->userdata('h_details');
+			$l_data=$this->session->userdata('w_details');
 			$post=$this->input->post();
 			$userdetails=$this->Admin_model->get_user_details($l_data['a_id']);
 			if($userdetails['email']!=$post['email']){
@@ -82,7 +82,7 @@ class Profile extends sidebar {
 	}
 	public function changepassword()
 	{
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$admindetails=$this->session->userdata('userdetails');
 				$this->load->view('admin/changepassword');
@@ -95,9 +95,9 @@ class Profile extends sidebar {
 	}
 	public function changepasswordpost(){
 	 
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
-			$admindetails=$this->session->userdata('h_details');
+			$admindetails=$this->session->userdata('w_details');
 			$post=$this->input->post();
 			$admin_details = $this->Admin_model->get_adminpassword_details($admindetails['a_id']);
 			if($admin_details['pwd']== md5($post['oldpassword'])){

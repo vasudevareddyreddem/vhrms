@@ -69,22 +69,22 @@
 						<!-- User Account: style can be found in dropdown.less -->
 						<li class="dropdown user user-menu">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<?php if($h_details['profile_pic']!=''){ ?>
-								<img src="<?php echo base_url('assets/profile_pic/'.$h_details['profile_pic']); ?>" class="user-image" alt="User Image">
+							<?php if($w_details['profile_pic']!=''){ ?>
+								<img src="<?php echo base_url('assets/profile_pic/'.$w_details['profile_pic']); ?>" class="user-image" alt="User Image">
 							<?php }else{ ?>
 								<img src="<?php echo base_url(); ?>assets/back/img/user.png" class="user-image" alt="User Image">
 							<?php } ?>
-								<span class="hidden-xs"><?php echo isset($h_details['name'])?$h_details['name']:''; ?></span>
+								<span class="hidden-xs"><?php echo isset($w_details['name'])?$w_details['name']:''; ?></span>
 							</a>
 							<ul class="dropdown-menu">
 								<!-- User image -->
 								<li class="user-header">
-									<?php if($h_details['profile_pic']!=''){ ?>
-										<img src="<?php echo base_url('assets/profile_pic/'.$h_details['profile_pic']); ?>" class="user-image" alt="User Image">
+									<?php if($w_details['profile_pic']!=''){ ?>
+										<img src="<?php echo base_url('assets/profile_pic/'.$w_details['profile_pic']); ?>" class="user-image" alt="User Image">
 									<?php }else{ ?>
 										<img src="<?php echo base_url(); ?>assets/back/img/user.png" class="img-circle" alt="User Image">
 									<?php } ?>
-									<p><?php echo isset($h_details['name'])?$h_details['name']:''; ?> <small><?php //echo isset($h_details['role_id'])?$h_details['role_id']:''; ?></small>
+									<p><?php echo isset($w_details['name'])?$w_details['name']:''; ?> <small><?php //echo isset($w_details['role_id'])?$w_details['role_id']:''; ?></small>
 									</p>
 								</li>
 								<!-- Menu Body -->
@@ -110,14 +110,14 @@
 				<!-- Sidebar user panel -->
 				<div class="user-panel bg-profile">
 					<div class="pull-left image">
-					<?php if($h_details['profile_pic']!=''){ ?>
-						<img src="<?php echo base_url('assets/profile_pic/'.$h_details['profile_pic']); ?>" class="user-image" alt="User Image">
+					<?php if($w_details['profile_pic']!=''){ ?>
+						<img src="<?php echo base_url('assets/profile_pic/'.$w_details['profile_pic']); ?>" class="user-image" alt="User Image">
 					<?php }else{ ?>
 						<img src="<?php echo base_url(); ?>assets/back/img/user.png" class="img-circle" alt="User Image">
 					<?php } ?>
 					</div>
 					<div class="pull-left info">
-						<p><?php echo isset($h_details['name'])?$h_details['name']:''; ?> </p> <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+						<p><?php echo isset($w_details['name'])?$w_details['name']:''; ?> </p> <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
 					</div>
 				</div>
 	
@@ -125,7 +125,7 @@
 				<ul class="sidebar-menu">
 					<li class="header">MAIN NAVIGATION</li>
 					
-					<?php if($h_details['role_id']==1){ ?>
+					<?php if($w_details['role_id']==1){ ?>
 						
 						<!--<li class="treeview">
 							<a href="#"> <i class="fa fa-user-plus"></i>  <span>Module</span>

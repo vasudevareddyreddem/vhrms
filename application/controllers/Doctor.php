@@ -11,9 +11,9 @@ class Doctor extends sidebar {
 	}
 	public function index()
 	{	
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 			{
-				$l_data=$this->session->userdata('h_details');
+				$l_data=$this->session->userdata('w_details');
 				$data['d_list']=$this->Doctor_model->d_list($l_data['a_id']);
 				//echo '<pre>';print_r($data);exit;
 				$this->load->view('doctor/list',$data);
@@ -25,7 +25,7 @@ class Doctor extends sidebar {
 	}
 	public function add()
 	{	
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 			{
 				$data['s_list']=$this->Doctor_model->s_list();
 				$this->load->view('doctor/add',$data);
@@ -39,7 +39,7 @@ class Doctor extends sidebar {
 	
 	public function edit()
 	{
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$d_id=base64_decode($this->uri->segment(3));
 			$data['d']=$this->Doctor_model->details($d_id);
@@ -54,9 +54,9 @@ class Doctor extends sidebar {
 	}
 	
 	public  function addpost(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 			{
-			$l_data=$this->session->userdata('h_details');
+			$l_data=$this->session->userdata('w_details');
 			$post=$this->input->post();
 			//echo '<pre>';print_r($post);exit; 
 			$check=$this->User_model->check_email($post['email'],$post['mobile']);
@@ -111,7 +111,7 @@ class Doctor extends sidebar {
 	}
 	
 	public  function editpost(){
-	if($this->session->userdata('h_details'))
+	if($this->session->userdata('w_details'))
 		{
 			$post=$this->input->post();
 			$d=$this->Doctor_model->details($post['d_id']);
@@ -167,7 +167,7 @@ class Doctor extends sidebar {
 	}
 	
 	public  function status(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$d_id=base64_decode($this->uri->segment(3));
 			$statu=base64_decode($this->uri->segment(4));
@@ -201,7 +201,7 @@ class Doctor extends sidebar {
 	}
 	
 	public  function delete(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$d_id=base64_decode($this->uri->segment(3));
 			$u_data=array(

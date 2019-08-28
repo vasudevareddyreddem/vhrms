@@ -17,7 +17,7 @@ class Dashboard extends sidebar {
 	}
 	public function index()
 	{	
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$data['ip_list']=$this->Admin_model->get_ip_cnt();
 			$data['patient_list']=$this->Admin_model->get_patients_list();
@@ -31,11 +31,11 @@ class Dashboard extends sidebar {
 			}
 	}	
 	public  function logout(){
-		$admindetails=$this->session->userdata('h_details');
-		$userinfo = $this->session->userdata('h_details');
+		$admindetails=$this->session->userdata('w_details');
+		$userinfo = $this->session->userdata('w_details');
         $this->session->unset_userdata($userinfo);
-		$this->session->sess_destroy('h_details');
-		$this->session->unset_userdata('h_details');
+		$this->session->sess_destroy('w_details');
+		$this->session->unset_userdata('w_details');
         redirect('admin');
 	}
 }

@@ -17,7 +17,7 @@ class Admin extends CI_Controller {
 		}
 	public function index()
 	{	
-		if(!$this->session->userdata('h_details'))
+		if(!$this->session->userdata('w_details'))
 		{
 			$this->load->view('admin/index');
 		}else{
@@ -27,14 +27,14 @@ class Admin extends CI_Controller {
 	}
 	public function loginpost()
 	{
-		if(!$this->session->userdata('h_details'))
+		if(!$this->session->userdata('w_details'))
 		{
 			$post=$this->input->post();
 			$login_deta=array('email'=>$post['email'],'pwd'=>md5($post['pwd']));
 			$check_login=$this->Admin_model->login_details($login_deta);
 			if(count($check_login)>0){
 				$login_details=$this->Admin_model->get_admin_details($check_login['a_id']);
-				$this->session->set_userdata('h_details',$login_details);
+				$this->session->set_userdata('w_details',$login_details);
 				redirect('dashboard');
 			}else{
 				$this->session->set_flashdata('error',"Invalid Email Address or Password!");
@@ -47,7 +47,7 @@ class Admin extends CI_Controller {
 	}
 	public function forgotpassword()
 	{
-		if(!$this->session->userdata('h_details'))
+		if(!$this->session->userdata('w_details'))
 		{
 			$this->load->view('admin/forgot-password');
 		}else{

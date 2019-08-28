@@ -20,7 +20,7 @@
           <div class="box box-primary">
             <div class="box-body box-profile">
 						<?php if($u_d['profile_pic']!=''){ ?>
-								<img src="<?php echo base_url('assets/profile_pic/'.$h_details['profile_pic']); ?>" class="profile-user-img img-responsive img-circle" alt="User Image">
+								<img src="<?php echo base_url('assets/profile_pic/'.$w_details['profile_pic']); ?>" class="profile-user-img img-responsive img-circle" alt="User Image">
 							<?php }else{ ?>
 								<img src="<?php echo base_url(); ?>assets/back/img/user.png" class="profile-user-img img-responsive img-circle" alt="User Image">
 							<?php } ?>

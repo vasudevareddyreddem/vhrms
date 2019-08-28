@@ -15,7 +15,7 @@ class User extends sidebar {
 		$this->load->view('admin/footer');
 	}
 	public  function add(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$data['r_list']=$this->User_model->get_active_roles_list();
 			$this->load->view('role/adduser',$data);
@@ -26,7 +26,7 @@ class User extends sidebar {
 		}
 	}
 	public  function edit(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$u_id=base64_decode($this->uri->segment(3));
 			$data['r_list']=$this->User_model->get_active_roles_list();
@@ -41,9 +41,9 @@ class User extends sidebar {
 		}
 	}
 	public  function lists(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
-			$l_data=$this->session->userdata('h_details');
+			$l_data=$this->session->userdata('w_details');
 			$data['u_list']=$this->User_model->get_active_user_list($l_data['a_id']);
 			//echo '<pre>';print_r($data);exit;
 			$this->load->view('role/userlist',$data);
@@ -54,9 +54,9 @@ class User extends sidebar {
 		}
 	}
 	public  function rights(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
-			$l_data=$this->session->userdata('h_details');
+			$l_data=$this->session->userdata('w_details');
 			$data['u_list']=$this->User_model->get_active_users_list($l_data['a_id']);
 			$data['m_list']=$this->User_model->get_active_module_list();
 			//echo '<pre>';print_r($data);exit;
@@ -68,7 +68,7 @@ class User extends sidebar {
 		}
 	}
 	public  function roles(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$data['m_list']=$this->module_model->get_module();
 			$this->load->view('admin/roles',$data);
@@ -80,7 +80,7 @@ class User extends sidebar {
 	}
 	public function roleedit()
 	{
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$r_id=base64_decode($this->uri->segment(3));
 			$data['r']=$this->User_model->get_rolename_details($r_id);
@@ -95,7 +95,7 @@ class User extends sidebar {
 		}
 	}
 	public  function roleslist(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$data['r_list']=$this->User_model->get_roles_list();
 			//echo '<pre>';print_r($data);exit;
@@ -107,11 +107,11 @@ class User extends sidebar {
 		}
 	}
 	public function addrights(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 				$post=$this->input->post();
 				//echo '<pre>';print_r($post);
-				$l_data=$this->session->userdata('h_details');
+				$l_data=$this->session->userdata('w_details');
 				$r_ids=$this->User_model->get_module_role_details($post['a_id'],$post['m_name']);
 				foreach($r_ids as $lis){
 					if (in_array($lis['m_m_id'], $post['role_options']))
@@ -149,11 +149,11 @@ class User extends sidebar {
 		}
 	}
 	public function editpost(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$post=$this->input->post();
 			//echo '<pre>';print_r($post);exit;
-			$l_data=$this->session->userdata('h_details');
+			$l_data=$this->session->userdata('w_details');
 			$u=$this->User_model->get_user_details($post['a_id']);
 			if($u['email']!=$post['email'] || $u['mobile']!=$post['mobile']){
 				$check=$this->User_model->check_email($post['email'],$post['mobile']);
@@ -201,10 +201,10 @@ class User extends sidebar {
 	}
 			
 	public function addpost(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$post=$this->input->post();
-			$l_data=$this->session->userdata('h_details');
+			$l_data=$this->session->userdata('w_details');
 			$check=$this->User_model->check_email($post['email'],$post['mobile']);
 			if(count($check)>0){
 				$this->session->set_flashdata('error',"Email /Mobile already exists. Please try again");
@@ -253,10 +253,10 @@ class User extends sidebar {
 		}
 	}
 	public function rolespost(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$post=$this->input->post();
-			$l_data=$this->session->userdata('h_details');
+			$l_data=$this->session->userdata('w_details');
 			$check=$this->User_model->check_role_name($post['m_name'],$post['role_name']);
 			if(count($check)>0){
 				$this->session->set_flashdata('error',"Role name already exists. Please use another name");
@@ -292,10 +292,10 @@ class User extends sidebar {
 		}
 	}
 	public function roleseditpost(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$post=$this->input->post();
-			$l_data=$this->session->userdata('h_details');
+			$l_data=$this->session->userdata('w_details');
 			$r=$this->User_model->get_rolename_details($post['r_n_id']);
 			//echo '<pre>';print_r($r);exit;
 			if($r['m_id']!=$post['m_name'] || $r['role_name']!=$post['role_name'] ){
@@ -350,7 +350,7 @@ class User extends sidebar {
 		}
 	}
 	public  function status(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$m_id=base64_decode($this->uri->segment(3));
 			$statu=base64_decode($this->uri->segment(4));
@@ -381,7 +381,7 @@ class User extends sidebar {
 		}
 	}
 	public  function delete(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$m_id=base64_decode($this->uri->segment(3));
 			$u_data=array(
@@ -402,7 +402,7 @@ class User extends sidebar {
 		}
 	}
 	public  function rolestatus(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$m_id=base64_decode($this->uri->segment(3));
 			$statu=base64_decode($this->uri->segment(4));
@@ -433,7 +433,7 @@ class User extends sidebar {
 		}
 	}
 	public  function roledelete(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$m_id=base64_decode($this->uri->segment(3));
 			$u_data=array(
@@ -454,7 +454,7 @@ class User extends sidebar {
 		}
 	}
 	public function get_module_options(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$post=$this->input->post();
 			$menulist=$this->module_model->get_module_menu($post['m_id']);
@@ -473,10 +473,10 @@ class User extends sidebar {
 		}
 	}
 	public function get_menu_options(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$post=$this->input->post();
-			$l_data=$this->session->userdata('h_details');
+			$l_data=$this->session->userdata('w_details');
 			$data['menulist']=$this->User_model->get_module_menu($post['m_id'],$post['a_id']);
 			$data['m_list']=$this->User_model->get_menu_module_menu($post['m_id']);
 			$this->load->view('role/userright_assign',$data);

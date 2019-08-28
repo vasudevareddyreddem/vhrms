@@ -1,5 +1,5 @@
 <footer class="main-footer">
-	<div class="pull-right hidden-xs"> <b>by</b> Vbss</div> <strong>Clinic software system </strong>
+	<div class="pull-right hidden-xs"> <b>by</b> Vbss</div> <strong>web software system </strong>
 </footer>
 <script src="<?php echo base_url(); ?>assets/back/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/back/js/dataTables.bootstrap.min.js"></script>

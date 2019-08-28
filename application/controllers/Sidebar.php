@@ -14,10 +14,10 @@ class Sidebar extends CI_Controller {
 		$this->load->helper('directory');
 		$this->load->helper('security');
 		$this->load->model('Admin_model');
-			if($this->session->userdata('h_details'))
+			if($this->session->userdata('w_details'))
 			{
-				$l_data=$this->session->userdata('h_details');
-				$data['h_details']=$this->Admin_model->get_user_details($l_data['a_id']);
+				$l_data=$this->session->userdata('w_details');
+				$data['w_details']=$this->Admin_model->get_user_details($l_data['a_id']);
 				if($l_data['role_id']==1){
 					$data['m_list']=$this->Admin_model->get_menu_list();
 				}else{
@@ -27,7 +27,7 @@ class Sidebar extends CI_Controller {
 				//echo '<pre>';print_r($data);exit;
 				$this->load->view('admin/header',$data);
 			}else{
-				$data['h_details']=array();
+				$data['w_details']=array();
 				$this->load->view('admin/header',$data);
 			}
 	}

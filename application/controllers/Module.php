@@ -18,9 +18,9 @@ class Module extends sidebar {
 	}
 	public function index()
 	{	
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 			{
-				$l_data=$this->session->userdata('h_details');
+				$l_data=$this->session->userdata('w_details');
 				$data['m_list']=$this->module_model->mlist($l_data['a_id']);
 				$this->load->view('module/list',$data);
 				$this->load->view('admin/footer');
@@ -31,9 +31,9 @@ class Module extends sidebar {
 	}
 	public function menulist()
 	{	
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 			{
-				$l_data=$this->session->userdata('h_details');
+				$l_data=$this->session->userdata('w_details');
 				$data['m_list']=$this->module_model->menu_list($l_data['a_id']);
 				$this->load->view('module/menulist',$data);
 				$this->load->view('admin/footer');
@@ -43,7 +43,7 @@ class Module extends sidebar {
 			}
 	}
 	public  function add(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 			{
 				$this->load->view('module/add');
 				$this->load->view('admin/footer');
@@ -53,7 +53,7 @@ class Module extends sidebar {
 			}
 	}
 	public  function menuadd(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 			{
 				$data['m_list']=$this->module_model->get_module();
 				$this->load->view('module/menuadd',$data);
@@ -65,7 +65,7 @@ class Module extends sidebar {
 	}
 	public function edit()
 	{
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$m_id=base64_decode($this->uri->segment(3));
 			$data['m']=$this->module_model->get_m_details($m_id);
@@ -78,7 +78,7 @@ class Module extends sidebar {
 	}
 	public function menuedit()
 	{
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$m_id=base64_decode($this->uri->segment(3));
 			$data['m']=$this->module_model->get_menu_details($m_id);
@@ -91,9 +91,9 @@ class Module extends sidebar {
 		}
 	}
 	public  function addpost(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 			{
-			$l_data=$this->session->userdata('h_details');
+			$l_data=$this->session->userdata('w_details');
 			$post=$this->input->post();
 				foreach($post['m_name'] as $li){
 					$check=$this->module_model->check($li);
@@ -126,9 +126,9 @@ class Module extends sidebar {
 			}
 	}
 	public  function menuaddpost(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 			{
-			$l_data=$this->session->userdata('h_details');
+			$l_data=$this->session->userdata('w_details');
 				$post=$this->input->post();
 				$check=$this->module_model->check_modulemenu($post['m_name'],$post['m_menu_name']);
 				if(count($check)>0){
@@ -156,7 +156,7 @@ class Module extends sidebar {
 			}
 	}
 	public  function editpost(){
-	if($this->session->userdata('h_details'))
+	if($this->session->userdata('w_details'))
 		{
 			$post=$this->input->post();
 			$m=$this->module_model->get_m_details($post['m_id']);
@@ -185,7 +185,7 @@ class Module extends sidebar {
 		}			
 	}
 	public  function menueditpost(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 			{
 				$post=$this->input->post();
 				$m=$this->module_model->get_menu_details($post['m_m_id']);
@@ -216,7 +216,7 @@ class Module extends sidebar {
 			}			
 	}
 	public  function status(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$m_id=base64_decode($this->uri->segment(3));
 			$statu=base64_decode($this->uri->segment(4));
@@ -247,7 +247,7 @@ class Module extends sidebar {
 		}
 	}
 	public  function menustatus(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$m_id=base64_decode($this->uri->segment(3));
 			$statu=base64_decode($this->uri->segment(4));
@@ -278,7 +278,7 @@ class Module extends sidebar {
 		}
 	}
 	public  function delete(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$m_id=base64_decode($this->uri->segment(3));
 			$u_data=array(
@@ -299,7 +299,7 @@ class Module extends sidebar {
 		}
 	}
 	public  function menudelete(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$m_id=base64_decode($this->uri->segment(3));
 			$u_data=array(

@@ -10,9 +10,9 @@ class Specialty extends sidebar {
 	}
 	public function index()
 	{	
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 			{
-				$l_data=$this->session->userdata('h_details');
+				$l_data=$this->session->userdata('w_details');
 				$data['s_list']=$this->Specialty_model->s_list($l_data['a_id']);
 				$this->load->view('specialty/list',$data);
 				$this->load->view('admin/footer');
@@ -23,7 +23,7 @@ class Specialty extends sidebar {
 	}
 	public function add()
 	{	
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 			{
 				$this->load->view('specialty/add');
 				$this->load->view('admin/footer');
@@ -36,7 +36,7 @@ class Specialty extends sidebar {
 	
 	public function edit()
 	{
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$s_id=base64_decode($this->uri->segment(3));
 			$data['s']=$this->Specialty_model->details($s_id);
@@ -49,9 +49,9 @@ class Specialty extends sidebar {
 	}
 	
 	public  function addpost(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 			{
-			$l_data=$this->session->userdata('h_details');
+			$l_data=$this->session->userdata('w_details');
 			$post=$this->input->post();
 				foreach($post['s_name'] as $li){
 					$check=$this->Specialty_model->check($li);
@@ -85,7 +85,7 @@ class Specialty extends sidebar {
 	}
 	
 	public  function editpost(){
-	if($this->session->userdata('h_details'))
+	if($this->session->userdata('w_details'))
 		{
 			$post=$this->input->post();
 			$s=$this->Specialty_model->details($post['s_id']);
@@ -115,7 +115,7 @@ class Specialty extends sidebar {
 	}
 	
 	public  function status(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$s_id=base64_decode($this->uri->segment(3));
 			$statu=base64_decode($this->uri->segment(4));
@@ -147,7 +147,7 @@ class Specialty extends sidebar {
 	}
 	
 	public  function delete(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$s_id=base64_decode($this->uri->segment(3));
 			$u_data=array(

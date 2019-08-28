@@ -82,13 +82,13 @@ class Admin_model extends CI_Model
         return $this->db->get()->result_array();
 	}
 	
-	public  function update_h_details($a_id,$data){
-		$this->db->where('h_id',$a_id);
+	public  function update_w_details($a_id,$data){
+		$this->db->where('w_id',$a_id);
     	return $this->db->update("website_details",$data);
 	}
 	public  function get_website_details($id){
-		$this->db->select('h_id,name,website,email,mobile,address,logo')->from('website_details');
-		$this->db->where('h_id',$id);
+		$this->db->select('w_id,name,website,email,mobile,address,logo')->from('website_details');
+		$this->db->where('w_id',$id);
     	return $this->db->get()->row_array();
 	}
 	

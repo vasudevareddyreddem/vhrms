@@ -18,9 +18,9 @@ class Department extends sidebar {
 	}
 	public function index()
 	{	
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 			{
-				$l_data=$this->session->userdata('h_details');
+				$l_data=$this->session->userdata('w_details');
 				$data['d_list']=$this->Department_model->d_list($l_data['a_id']);
 				$this->load->view('dept/list',$data);
 				$this->load->view('admin/footer');
@@ -31,9 +31,9 @@ class Department extends sidebar {
 	}
 	public function add()
 	{	
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 			{
-				$l_data=$this->session->userdata('h_details');
+				$l_data=$this->session->userdata('w_details');
 				$this->load->view('dept/add');
 				$this->load->view('admin/footer');
 			}else{
@@ -45,7 +45,7 @@ class Department extends sidebar {
 	
 	public function edit()
 	{
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$d_id=base64_decode($this->uri->segment(3));
 			$data['d']=$this->Department_model->details($d_id);
@@ -58,9 +58,9 @@ class Department extends sidebar {
 	}
 	
 	public  function addpost(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 			{
-			$l_data=$this->session->userdata('h_details');
+			$l_data=$this->session->userdata('w_details');
 			$post=$this->input->post();
 				foreach($post['d_name'] as $li){
 					$check=$this->Department_model->check($li);
@@ -94,7 +94,7 @@ class Department extends sidebar {
 	}
 	
 	public  function editpost(){
-	if($this->session->userdata('h_details'))
+	if($this->session->userdata('w_details'))
 		{
 			$post=$this->input->post();
 			$d=$this->Department_model->details($post['d_id']);
@@ -124,7 +124,7 @@ class Department extends sidebar {
 	}
 	
 	public  function status(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$d_id=base64_decode($this->uri->segment(3));
 			$statu=base64_decode($this->uri->segment(4));
@@ -156,7 +156,7 @@ class Department extends sidebar {
 	}
 	
 	public  function delete(){
-		if($this->session->userdata('h_details'))
+		if($this->session->userdata('w_details'))
 		{
 			$d_id=base64_decode($this->uri->segment(3));
 			$u_data=array(
