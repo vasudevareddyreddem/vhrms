@@ -1,7 +1,7 @@
 <div class="content-wrapper">
 	<section class="content-header mb-4">
 		<h1>
-		Hospital Details
+		Website Details
       </h1>
 		<ol class="breadcrumb">
 			<li><a href="<?php echo base_url('dashboard'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -16,7 +16,7 @@
 				<div class=" ">
 				
 					<div style="padding:20px;">
-						<form id="defaultForm" method="post" class="form-horizontal" action="<?php echo base_url('hospital/addhospital_d_post'); ?>" enctype="multipart/form-data">
+						<form id="defaultForm" method="post" class="form-horizontal" action="<?php echo base_url('website/addwebsite_d_post'); ?>" enctype="multipart/form-data">
 							
 						<div class=" row ">
 							<div class=" col-md-12 ">
@@ -24,7 +24,7 @@
 							<div class="form-group">
 									<label class="col-lg-4 control-label">Register name</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" name="name" value="<?php echo isset($h_detail['name'])?$h_detail['name']:'';?>" placeholder="Enter Hospital Name" />
+										<input type="text" class="form-control" name="name" value="<?php echo isset($h_detail['name'])?$h_detail['name']:'';?>" placeholder="Enter Website Name" />
 									</div>
 								</div>
 								<div class="form-group">

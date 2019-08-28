@@ -127,7 +127,7 @@
 					
 					<?php if($w_details['role_id']==1){ ?>
 						
-						<!--<li class="treeview">
+						<li class="treeview">
 							<a href="#"> <i class="fa fa-user-plus"></i>  <span>Module</span>
 								<span class="pull-right-container">
 								  <i class="fa fa-angle-left pull-right"></i>
@@ -148,7 +148,7 @@
 								<li> <a href="<?php echo base_url('module/menuadd'); ?>">Add </a></li>
 								<li><a href="<?php echo base_url('module/menulist'); ?>">List</a></li>
 							</ul>
-						</li>-->
+						</li>
 						
 					<?php } ?>
 					<?php $cnt=1;foreach($m_list as $m_li){ ?>

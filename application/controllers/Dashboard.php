@@ -19,11 +19,7 @@ class Dashboard extends sidebar {
 	{	
 		if($this->session->userdata('w_details'))
 		{
-			$data['ip_list']=$this->Admin_model->get_ip_cnt();
-			$data['patient_list']=$this->Admin_model->get_patients_list();
-			$data['op_list']=$this->Admin_model->get_op_list();
-			//echo '<pre>';print_r($data);exit;
-			$this->load->view('admin/dashboard',$data);
+			$this->load->view('admin/dashboard');
 			$this->load->view('admin/footer');
 		}else{
 				$this->session->set_flashdata('error','Please login to continue');

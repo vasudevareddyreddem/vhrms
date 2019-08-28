@@ -92,25 +92,7 @@ class Admin_model extends CI_Model
     	return $this->db->get()->row_array();
 	}
 	
-	// dashboard 
 	
-	public  function get_ip_cnt(){
-		$this->db->select('count(i_p_id) as cnt')->from('ip_patients');
-    	return $this->db->get()->row_array();
-	}
-	public  function get_med_list(){
-		$this->db->select('count(med_id) as cnt')->from('medicines');
-		$this->db->where('status',1);
-    	return $this->db->get()->row_array();
-	}public  function get_patients_list(){
-		$this->db->select('count(p_id) as cnt')->from('patients');
-		$this->db->where('status',1);
-    	return $this->db->get()->row_array();
-	}public  function get_op_list(){
-		$this->db->select('count(o_p_id) as cnt')->from('op_patients');
-		$this->db->where('status',1);
-    	return $this->db->get()->row_array();
-	}
 	
 	
   }
